@@ -14,11 +14,11 @@ import textwrap
 
 from PIL import Image
 
-@st.cache()
+@st.cache(ttl = 3600)
 def load_model( ):
     return DistilBertForQuestionAnswering.from_pretrained('distilbert-base-uncased-distilled-squad')
 
-@st.cache()
+@st.cache(ttl = 3600)
 def load_tokenizer( ):
     return DistilBertTokenizer.from_pretrained('distilbert-base-uncased',return_token_type_ids = True)
     
